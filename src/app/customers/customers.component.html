@@ -1,10 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">ANGULARDENEME</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" routerLink="/home">HOME</a>
+        <a class="nav-link" routerLink="/customers" routerLinkActive="active">Customers</a>
+        <a class="nav-link" routerLink="/employees" routerLinkActive="active">Employees</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
 <div class="row py-3">
-  <div class="col-10">
+  <div class="col-10 text-primary">
     <h1>ANGULARDENEME</h1>
   </div>
   <div class="col-2">
     <td><button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Add
-      Customer</button></td>
+        Customer</button></td>
   </div>
 
 
@@ -28,7 +46,7 @@
       <td>{{user.email}}</td>
       <td>{{user.age}}</td>
       <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal"
-        id="editButton" (click)="editData(user.id)">Edit</button>
+          id="editButton" (click)="editData(user.id)">Edit</button>
         <button type="button" class="btn btn-danger mx-1" (click)="deleteData(user.id)">Delete</button>
       </td>
     </tr>
@@ -48,15 +66,18 @@
           <div class="mb-3">
             <label for="editName" class="form-label">Name</label>
             <input type="text" name="name" formControlName="name" class="form-control" id="editName"
-            aria-describedby="emailHelp">
+              aria-describedby="emailHelp">
+
           </div>
           <div class="mb-3">
             <label for="editSurname" class="form-label">Surname</label>
             <input type="text" name="surname" formControlName="surname" class="form-control" id="editSurname">
+
           </div>
           <div class="mb-3">
             <label for="editEmail" class="form-label">E-mail</label>
             <input type="email" name="email" formControlName="email" class="form-control" id="editEmail">
+
           </div>
           <div class="mb-3">
             <label for="editAge" class="form-label">Age</label>
@@ -88,15 +109,26 @@
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Name</label>
             <input type="text" name="name" formControlName="name" class="form-control" id="exampleInputEmail1"
-            aria-describedby="emailHelp">
+              aria-describedby="emailHelp">
+            <div class="error text-danger" *ngIf="userForm.controls['name'].errors">
+              <div *ngIf="userForm.controls['name'].errors.minlength">Name must be at least 6 characters</div>
+              <div *ngIf="userForm.controls['name'].errors.maxlength">Name must be at most 20 characters</div>
+            </div>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Surname</label>
             <input type="text" name="surname" formControlName="surname" class="form-control" id="exampleInputPassword1">
+            <div class="error text-danger" *ngIf="userForm.controls['surname'].errors">
+              <div *ngIf="userForm.controls['surname'].errors.minlength">Surname must be at least 6 characters</div>
+              <div *ngIf="userForm.controls['surname'].errors.maxlength">Surname must be at most 20 characters</div>
+            </div>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">E-mail</label>
             <input type="email" name="email" formControlName="email" class="form-control" id="exampleInputPassword1">
+            <div class="error text-danger" *ngIf="userForm.controls['email'].errors">
+              <div *ngIf="userForm.controls['email'].errors.minlength">Email must be at least 15 characters</div>
+            </div>
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Age</label>
