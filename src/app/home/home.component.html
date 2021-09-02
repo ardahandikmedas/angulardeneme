@@ -1,17 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">ANGULARDENEME</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-link" routerLink="/home">HOME</a>  
-          <a class="nav-link" routerLink="/customers" routerLinkActive="active">Customers</a>
-          <a class="nav-link" routerLink="/employees" routerLinkActive="active">Employees</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<mat-tab-group >
+  <mat-tab label="Customers">
+    <app-customers></app-customers>
+  </mat-tab>
+  <mat-tab label="Employees">
+    <app-employees></app-employees>
+  </mat-tab>
+</mat-tab-group>
 
 

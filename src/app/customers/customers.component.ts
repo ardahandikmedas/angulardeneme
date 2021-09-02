@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -44,7 +44,6 @@ export class CustomersComponent implements OnInit {
  
  ngOnInit() {
   this.createForm();
-  this.createdForm();
  }
  createForm(){
   this.userForm = this.fb.group({
@@ -55,16 +54,6 @@ export class CustomersComponent implements OnInit {
     age:['', Validators.required]
 });
  }
- createdForm(){
-  this.editForm = this.fb.group({
-    id: [],
-    name: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-    surname: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-    email: ['', [Validators.required, Validators.minLength(15)]],
-    age:['', Validators.required]
-  });
- }
-  
 
  addData() {
  let customer = this.userForm.value;
